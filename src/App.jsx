@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Play, Pause, RefreshCw, Code, ZoomIn, ZoomOut, Eye, EyeOff, ChevronRight, ChevronLeft, ChevronUp, ChevronDown, Zap, Skull, Fuel, AlertTriangle, CheckCircle } from 'lucide-react';
 
@@ -39,35 +38,8 @@ const DEFAULT_CODE = `
 
 // --- LOGIC START ---
 
-if (sensor.front === 'monster') {
-  shoot();
-} 
-else if (sensor.front === 'gas' || sensor.front === 'goal') {
-  moveFront();
-}
-else if (sensor.left === 'gas') {
-  turnLeft();
-}
-else if (sensor.right === 'gas') {
-  turnRight();
-}
-else if (sensor.front !== 'wall' && sensor.front !== 'hole' && sensor.front !== 'visited') {
-  moveFront();
-}
-else if (sensor.left !== 'wall' && sensor.left !== 'hole' && sensor.left !== 'visited') {
-  turnLeft();
-} 
-else if (sensor.right !== 'wall' && sensor.right !== 'hole' && sensor.right !== 'visited') {
-  turnRight();
-}
-else {
-  // If stuck, try to turn to find new path
-  if (sensor.front === 'wall' || sensor.front === 'hole') {
-      turnRight();
-  } else {
-      moveFront();
-  }
-}
+// Write your code logic here...
+
 `;
 
 // --- MAPA PRECARGADO ---
@@ -491,7 +463,7 @@ export default function AgentGame() {
         </div>
 
         {/* CODING PANEL (TOGGLEABLE) */}
-        <div className={`absolute top-4 left-4 bottom-4 w-[450px] bg-slate-900/95 backdrop-blur border border-slate-700 shadow-2xl flex flex-col transition-transform duration-300 rounded-xl overflow-hidden z-40 ${showCode ? 'translate-x-0' : '-translate-x-[460px]'}`}>
+        <div className={`absolute top-4 left-4 bottom-4 w-[675px] bg-slate-900/95 backdrop-blur border border-slate-700 shadow-2xl flex flex-col transition-transform duration-300 rounded-xl overflow-hidden z-40 ${showCode ? 'translate-x-0' : '-translate-x-[685px]'}`}>
             <div className="bg-slate-800 p-3 flex justify-between items-center border-b border-slate-700">
                 <span className="font-mono text-sm text-blue-400 font-bold flex items-center gap-2">
                     <Code size={16}/> agent_script.js
